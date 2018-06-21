@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">HomeWork1</string>
+    <string name="buttonCreateNew">Create New</string>
+    <string name="buttonEditContact">Edit Contact</string>
+    <string name="buttonDeleteContact">Delete Contact</string>
+    <string name="buttonDisplayContact">Display Contact</string>
+    <string name="buttonFinish">Finish</string>
+    <string name="FirstName">First Name</string>
+    <string name="LastName">Last Name</string>
+    <string name="CompanyName">CompanyName</string>
+    <string name="url">url</string>
+    <string name="address">address</string>
+    <string name="nickname">nick name</string>
+    <string name="fburl">fburl</string>
+    <string name="twiturl" />
+    <string name="buttonSave">Save</string>
 </resources>
