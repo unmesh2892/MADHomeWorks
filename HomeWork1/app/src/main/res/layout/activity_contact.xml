@@ -43,7 +43,7 @@
                 android:layout_marginStart="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/FirstName"
+                android:hint="First"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageButton" />
@@ -58,7 +58,7 @@
                 android:layout_marginStart="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/LastName"
+                android:hint="Last"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/FirstName" />
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="company" />
+                android:hint="Company" />
 
             <EditText
                 android:id="@+id/phone"
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="phone"
-                android:text="phone" />
+                android:hint="Phone" />
 
             <EditText
                 android:id="@+id/email"
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textEmailAddress"
-                android:text="email" />
+                android:hint="email" />
 
             <EditText
                 android:id="@+id/url"
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="url" />
+                android:hint="url" />
 
             <EditText
                 android:id="@+id/address"
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="address" />
+                android:hint="address" />
 
             <EditText
                 android:id="@+id/birthday"
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="birthday" />
+                android:hint="birthday" />
 
             <EditText
                 android:id="@+id/nickname"
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="nickname" />
+                android:hint="NickName" />
 
             <EditText
                 android:id="@+id/fburl"
@@ -125,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Facebook" />
+                android:hint="Facebook profile URL" />
 
             <EditText
                 android:id="@+id/twiturl"
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="twiturl" />
+                android:hint="Twitter profile URL" />
 
             <EditText
                 android:id="@+id/skype"
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="skype" />
+                android:hint="skype" />
 
             <EditText
                 android:id="@+id/youtube"
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="youtube" />
+                android:hint="YouTube Channel" />
 
             <Button
                 android:id="@+id/buttonSave"
