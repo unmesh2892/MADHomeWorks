@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_contact_list2_layout"
+    tools:context=".ContactListActivity">
+
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imageView"-->
+                <!--android:layout_width="86dp"-->
+                <!--android:layout_height="87dp"-->
+                <!--app:srcCompat="@android:drawable/btn_star_big_on"-->
+                <!--tools:layout_editor_absoluteX="16dp"-->
+                <!--tools:layout_editor_absoluteY="66dp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textViewFirst"-->
+                <!--android:layout_width="130dp"-->
+                <!--android:layout_height="33dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:layout_marginLeft="8dp"-->
+                <!--android:layout_marginRight="8dp"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:text="@string/TextFirst"-->
+                <!--app:layout_constraintEnd_toStartOf="@+id/textLast"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/imageView"-->
+                <!--tools:layout_editor_absoluteY="66dp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textLast"-->
+                <!--android:layout_width="95dp"-->
+                <!--android:layout_height="44dp"-->
+                <!--android:layout_marginEnd="52dp"-->
+                <!--android:layout_marginRight="52dp"-->
+                <!--android:text="@string/textLast"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--tools:layout_editor_absoluteY="273dp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textNumber"-->
+                <!--android:layout_width="107dp"-->
+                <!--android:layout_height="39dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:layout_marginLeft="8dp"-->
+                <!--android:layout_marginRight="8dp"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="16dp"-->
+                <!--android:text="@string/textNumber"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintHorizontal_bias="0.372"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/imageView"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/textViewFirst" />-->
+
+        <!--</LinearLayout>-->
+    <!--</ScrollView>-->
+
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
+</android.support.constraint.ConstraintLayout>

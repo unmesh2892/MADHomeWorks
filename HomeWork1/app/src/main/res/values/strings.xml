@@ -14,4 +14,7 @@
     <string name="fburl">fburl</string>
     <string name="twiturl" />
     <string name="buttonSave">Save</string>
+    <string name="TextFirst">First Name</string>
+    <string name="textLast">Last Name</string>
+    <string name="textNumber">Number</string>
 </resources>

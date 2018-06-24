@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContactActivity" />
-        <activity android:name=".ContactList"></activity>
+        <activity android:name=".ContactListActivity"></activity>
     </application>
 
 </manifest>
