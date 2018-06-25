@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     static LinkedList<ContactInfo> contactList = new LinkedList<ContactInfo>();
     public static String CONTACT_LIST ="CONTACT_LIST";
     public static int LIST_REQUEST = 101;
+    public static String CONTACT_NUMBER = "CONTACT_NUMBER";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(MainActivity.this,ContactListActivity.class);
+                intent.putExtra(CONTACT_LIST,contactList);
+                intent.putExtra(CONTACT_NUMBER,200);
+
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -47,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,ContactListActivity.class);
                 intent.putExtra(CONTACT_LIST,contactList);
 
+                intent.putExtra(CONTACT_NUMBER,201);
                 startActivity(intent);
                 finish();
             }
@@ -56,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,ContactListActivity.class);
+                intent.putExtra(CONTACT_LIST,contactList);
+                intent.putExtra(CONTACT_NUMBER,202);
                 startActivity(intent);
                 finish();
             }

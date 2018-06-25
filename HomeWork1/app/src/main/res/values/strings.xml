@@ -17,4 +17,5 @@
     <string name="TextFirst">First Name</string>
     <string name="textLast">Last Name</string>
     <string name="textNumber">Number</string>
+    <string name="textViewName" />
 </resources>
