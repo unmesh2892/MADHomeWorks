@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".ContactActivity" />
         <activity android:name=".ContactListActivity" />
-        <activity android:name=".DisplayActivity"></activity>
+        <activity android:name=".DisplayActivity" />
+        <activity android:name=".EditActivity"></activity>
     </application>
 
 </manifest>

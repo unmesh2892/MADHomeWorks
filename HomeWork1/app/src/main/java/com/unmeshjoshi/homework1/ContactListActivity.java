@@ -29,6 +29,10 @@ public class ContactListActivity extends AppCompatActivity {
     Long contactInfoItemPos;
     int value;
     public static String DISPLAY_CONTACT = "DISPLAY_CONTACT";
+    public static String EDIT_CONTACT = "EDIT_CONTACT";
+    public static String EDIT_CONTACT_LIST = "EDIT_CONTACT_LIST";
+    public static String DELETE_CONTACT_LIST = "DELETE_CONTACT_LIST";
+    public static String LIST_POSITION = "LIST_POSITION";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,7 @@ public class ContactListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_contact_list2);
         ConstraintLayout mainLayout = (ConstraintLayout) findViewById(R.id.activity_contact_list2_layout);
         contactList = (ArrayList<ContactInfo>) getIntent().getSerializableExtra(MainActivity.CONTACT_LIST);
-        Log.d("the list is" , "" +contactList.toString());
+
         value = (Integer)getIntent().getIntExtra(MainActivity.CONTACT_NUMBER,0);
 
 
@@ -53,10 +57,17 @@ public class ContactListActivity extends AppCompatActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    contactList = (ArrayList<ContactInfo>) getIntent().getSerializableExtra(MainActivity.CONTACT_LIST);
 
+                    Intent intentEditContact = new Intent(ContactListActivity.this,EditActivity.class);
+                    ContactInfo contactInfoEdit = contactList.get(position);
 
-
-                }
+                    intentEditContact.putExtra(EDIT_CONTACT,contactInfoEdit);
+                    intentEditContact.putExtra(EDIT_CONTACT_LIST,contactList);
+                    intentEditContact.putExtra(LIST_POSITION,position);
+                    startActivityForResult(intentEditContact,111);
+                   // finish();
+     }
             });
 
         }else if(value == 201){         //DisplayCOntact
@@ -64,6 +75,7 @@ public class ContactListActivity extends AppCompatActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    contactList = (ArrayList<ContactInfo>) getIntent().getSerializableExtra(MainActivity.CONTACT_LIST);
 
                     Intent intentDisplay = new Intent(ContactListActivity.this,DisplayActivity.class);
                     intentDisplay.putExtra(DISPLAY_CONTACT,contactList.get(position));
@@ -84,9 +96,13 @@ public class ContactListActivity extends AppCompatActivity {
 
                     new AlertDialog.Builder(ContactListActivity.this).setTitle("Delete COntact").setMessage("Do you really want to delete this?").setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-
+                            Intent intentDelete = new Intent(ContactListActivity.this,MainActivity.class);
+                            contactList = (ArrayList<ContactInfo>) getIntent().getSerializableExtra(MainActivity.CONTACT_LIST);
                             contactList.remove(position);
                             adapter.notifyDataSetChanged();
+                            intentDelete.putExtra(DELETE_CONTACT_LIST,contactList);
+                            setResult(103,intentDelete);
+                            finish();
 
 
 
@@ -152,6 +168,13 @@ public class ContactListActivity extends AppCompatActivity {
 //            mainLayout.addView(myLayout);
         }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 111){
+            Log.d("In contactlist activity","In contactlist activity");
+            setResult(102,data);
+            finish();
+        }
     }
+}
 

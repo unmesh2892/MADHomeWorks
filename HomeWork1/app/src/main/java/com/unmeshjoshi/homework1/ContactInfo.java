@@ -101,4 +101,60 @@ public class ContactInfo implements Serializable {
     public String getYoutube() {
         return youtube;
     }
+
+    public void setImageButton(byte[] imageButton) {
+        this.imageButton = imageButton;
+    }
+
+    public void setFirst(String first) {
+        this.first = first;
+    }
+
+    public void setLast(String last) {
+        this.last = last;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setFbURL(String fbURL) {
+        this.fbURL = fbURL;
+    }
+
+    public void setTwitterURL(String twitterURL) {
+        this.twitterURL = twitterURL;
+    }
+
+    public void setSkype(String skype) {
+        this.skype = skype;
+    }
+
+    public void setYoutube(String youtube) {
+        this.youtube = youtube;
+    }
 }

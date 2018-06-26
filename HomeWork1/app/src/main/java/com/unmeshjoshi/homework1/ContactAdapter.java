@@ -28,7 +28,6 @@ public class ContactAdapter extends ArrayAdapter<ContactInfo> {
 
         // Lookup view for data population
         byte[] image = contactInfo.getImageButton();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image,0,image.length);
 
         TextView name = (TextView) convertView.findViewById(R.id.textViewName2);
         TextView phone = (TextView) convertView.findViewById(R.id.textViewNumber);
@@ -36,8 +35,15 @@ public class ContactAdapter extends ArrayAdapter<ContactInfo> {
         // Populate the data into the template view using the data object
         name.setText(contactInfo.getFirst() + " " + contactInfo.getLast());
         phone.setText(contactInfo.getPhone());
-        imageView.setImageBitmap(bitmap);
-        // Return the completed view to render on screen
+
+        if(image.length == 1){
+            imageView.setImageResource(R.drawable.ic_action_name);
+        }else {
+
+            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            imageView.setImageBitmap(bitmap);
+        }
+        // / Return the completed view to render on screen
         return convertView;
     }
 }

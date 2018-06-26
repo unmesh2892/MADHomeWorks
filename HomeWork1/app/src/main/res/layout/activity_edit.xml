@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ContactActivity">
-
+    tools:context=".EditActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,12 +26,10 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.468"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-
                 app:srcCompat="@android:drawable/ic_menu_camera" />
 
             <EditText
@@ -51,7 +48,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageButtonEdit" />
 
             <EditText
-                android:id="@+id/LastName"
+                android:id="@+id/LastNameEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -59,103 +56,103 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:ems="10"
-                android:inputType="textPersonName"
                 android:hint="Last"
+                android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/FirstNameEdit" />
 
             <EditText
-                android:id="@+id/company"
+                android:id="@+id/companyEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Company" />
+                android:hint="Company"
+                android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/phone"
+                android:id="@+id/phoneEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Phone"
                 android:digits="0123456789+"
-                android:inputType="phone"
-                android:hint="Phone" />
+                android:inputType="phone" />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/emailEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress"
-                android:hint="email" />
+                android:hint="email"
+                android:inputType="textEmailAddress" />
 
             <EditText
-                android:id="@+id/url"
+                android:id="@+id/urlEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="url" />
+                android:hint="url"
+                android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/address"
+                android:id="@+id/addressEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="address" />
+                android:hint="address"
+                android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/birthday"
+                android:id="@+id/birthdayEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="birthday" />
+                android:hint="birthday"
+                android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/nickname"
+                android:id="@+id/nicknameEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="NickName" />
+                android:hint="NickName"
+                android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/fburl"
+                android:id="@+id/fburlEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Facebook profile URL" />
+                android:hint="Facebook profile URL"
+                android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/twiturl"
+                android:id="@+id/twiturlEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Twitter profile URL" />
+                android:hint="Twitter profile URL"
+                android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/skype"
+                android:id="@+id/skypeEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="skype" />
+                android:hint="skype"
+                android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/youtube"
+                android:id="@+id/youtubeEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="YouTube Channel" />
+                android:hint="YouTube Channel"
+                android:inputType="textPersonName" />
 
             <Button
-                android:id="@+id/buttonSave"
+                android:id="@+id/buttonSaveEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/buttonSave" />
