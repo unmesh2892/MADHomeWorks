@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">HomeWork3</string>
+
+    <string name="buttonLogin" />
+    <string name="buttonSignUp">SignUp</string>
+    <string name="editTextLstName">Last Name</string>
+    <string name="editTextUserName">First Name</string>
+    <string name="UserName" />
+    <string name="AddComment" />
+    <string name="messageView" />
+    <string name="messageFrom" />
+    <string name="messageTime" />
+    <string name="replyText" />
+    <string name="replyUser" />
+    <string name="replyTime" />
+
+</resources>
