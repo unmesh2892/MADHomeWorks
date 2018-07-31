@@ -28,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 
 import org.ocpsoft.prettytime.PrettyTime;
@@ -41,7 +42,7 @@ public class ChatActivity extends AppCompatActivity {
     TextView newComment,userName;
     ImageView imageFromGallery,sendMessage,logout;
     private  int GALLERY=1;
-    String urlId;
+    String urlId="";
     String userID;
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
@@ -64,19 +65,27 @@ public class ChatActivity extends AppCompatActivity {
         logout = findViewById(R.id.logout);
         userName = findViewById(R.id.UserName);
 
-      dbRef =   databaseReference.child("users").child(userID);
 
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                userName.setText(dataSnapshot.child("name").getValue().toString());
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            dbRef =   databaseReference.child("users").child(userID);
 
-            }
-        });
+            dbRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.hasChild("name")){
+                        userName.setText(dataSnapshot.child("name").getValue().toString());
+
+                    }
+                    }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,17 +116,30 @@ public class ChatActivity extends AppCompatActivity {
 
                     if(urlId.isEmpty() || urlId.equals(null)){
                         DatabaseReference mReference =  databaseReference.child("users").child(userID).child("messages");
+
+                       // mReference.setValue(chatMessage);
+
+
                         String key = mReference.push().getKey();
                        chatMessage.setKey(key);
                         mReference.child(key).setValue(chatMessage);
+
+                        newComment.setText("");
+                        displayChatMessage();
                     }else{
                         chatMessage.setImageUrl(urlId);
                        // chatMessage.imageUrl=urlId;
                         DatabaseReference mReference =  databaseReference.child("users").child(userID).child("messages");
+                       // mReference.setValue(chatMessage);
+
+
                         String key = mReference.push().getKey();
                         chatMessage.setKey(key);
-                        // chatMessage.key= key;
+                        chatMessage.key= key;
+
                         mReference.child(key).setValue(chatMessage);
+                        newComment.setText("");
+                        displayChatMessage();
                     }
            }
         });
@@ -134,7 +156,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void displayChatMessage() {
         final ListView listView = findViewById(R.id.listView);
-        Query query = databaseReference.child(userID);
+        Query query = databaseReference.child("users").child(userID).child("messages");
 
 
         FirebaseListOptions<ChatMessage> options = new FirebaseListOptions.Builder<ChatMessage>()
@@ -143,52 +165,48 @@ public class ChatActivity extends AppCompatActivity {
 
         chatAdapter = new FirebaseListAdapter<ChatMessage>(options) {
             @Override
-            protected void populateView(View v, ChatMessage model, int position) {
+            protected void populateView(View v,final ChatMessage model, int position) {
                 TextView textMessage = v.findViewById(R.id.messageView);
                 TextView textUser = v.findViewById(R.id.messageFrom);
                 TextView textDate = v.findViewById(R.id.messageTime);
+                ImageView chatReply = v.findViewById(R.id.reply);
+                ImageView delete = v.findViewById(R.id.delete);
+                ImageView pics = v.findViewById(R.id.displayImage);
 
+                if(model.imageUrl==null){
+                    pics.setEnabled(false);
+                }else{
+                    pics.setVisibility(View.VISIBLE);
+                    Picasso.get().load(model.imageUrl).into(pics);
+                }
+
+                chatReply.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    Intent intent = new Intent(ChatActivity.this,Reply.class);
+                    intent.putExtra("KEY",model.getKey());
+                    startActivity(intent);
+                    finish();
+
+                    }
+                });
+
+               delete.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       databaseReference.child("users").child(userID).child("messages").removeValue();
+                   }
+               });
                 textMessage.setText(model.getMessageText());
                 textUser.setText(model.getMessageUser());
-                textDate.setText(new PrettyTime().format(new Date(System.currentTimeMillis() + 1000*60*10)));
+                textDate.setText(new PrettyTime().format(new Date(System.currentTimeMillis())));
 
 
             }
 
         };
-
+        chatAdapter.startListening();
         listView.setAdapter(chatAdapter);
-
-
-      /*  dbRef.child("messages").addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                chatMessageList.clear();
-                for(DataSnapshot child : dataSnapshot.getChildren()){
-                    ChatMessage chatMessage = child.getValue(ChatMessage.class);
-
-                    if(chatMessage.imageUrl.isEmpty() | chatMessage.imageUrl.equals(null)){
-                        chatMessageList.add(new ChatMessage(chatMessage.messageText,chatMessage.messageUser,chatMessage.key));
-                    }else{
-                        chatMessageList.add(new ChatMessage(chatMessage.messageText,chatMessage.messageUser,chatMessage.imageUrl,chatMessage.key));
-                    }
-                }
-
-                ctAdapter = new ChatAdapter(ChatActivity.this,chatMessageList);
-                listView.setAdapter(ctAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
-     /*   chatAdapter = FirebaseListAdapter<ChatMessage>(this,ChatMessage.class,R.layout.list_view,FirebaseDatabase.getInstance().getReference())
-        {
-
-        }*/
-
     }
 
     public void choosePhotoFromGallery() {
@@ -220,6 +238,7 @@ public class ChatActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Uri> task) {
                                 urlId = task.getResult().toString();
+                               // displayChatMessage();
                             }
                         });
 

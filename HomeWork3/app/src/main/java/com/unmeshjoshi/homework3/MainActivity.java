@@ -57,19 +57,25 @@ public class MainActivity extends AppCompatActivity {
                 String email = inputEmail.getText().toString();
                 final String pass = inputPassword.getText().toString();
 
-                auth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (!task.isSuccessful()) {
-                            // there was an error
-                            Toast.makeText(MainActivity.this, "Authentication Failed", Toast.LENGTH_LONG).show();
-                        } else {
-                            Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-                            startActivity(intent);
-                            finish();
+                if(email.isEmpty() || pass.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Enter login/password", Toast.LENGTH_LONG).show();
+                    finish();
+                }else {
+
+                    auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (!task.isSuccessful()) {
+                                // there was an error
+                                Toast.makeText(MainActivity.this, "Authentication Failed", Toast.LENGTH_LONG).show();
+                            } else {
+                                Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
 

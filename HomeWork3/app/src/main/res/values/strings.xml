@@ -13,5 +13,6 @@
     <string name="replyText" />
     <string name="replyUser" />
     <string name="replyTime" />
+    <string name="EnterReply" />
 
 </resources>
